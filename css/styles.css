@@ -1,13 +1,60 @@
 @font-face {
-    font-family: Figtree-Bold;
-    src: url(/fonts/Figtree/Figtree-Black.ttf);
+  font-family: Figtree-Black;
+  src: url(/fonts/Figtree/Figtree-Black.ttf);
+}
+@font-face {
+  font-family: Figtree-Bold;
+  src: url(/fonts/Figtree/Figtree-Bold.ttf);
 }
 
 .Hero-Container {
-
+  background-color: aqua;
 }
 
 .Hero-Title {
-    font-size: 100px;
+  margin-top: 50px;
+  text-align: center;
+  font-size: 95px;
+  font-family: Figtree-Black;
+}
+
+.CTA {
+  font-weight: 700 !important;
+  font-size: 30px !important;
+  padding: 10px 30px !important;
+}
+
+.category-card p,
+.category-card h4 {
+  color: white;
+}
+
+.card-img-overlay a {
+    text-decoration: none;
+    color: white;
+    font-size: 50px;
     font-family: Figtree-Bold;
+    letter-spacing: 5px;
+    transition: ease-in 0.2s;
+}
+
+.card-img-overlay a:hover {
+    color: #ffcc00;
+}
+
+h2 {
+    font-size: 50px !important;
+    font-family: Figtree-Bold !important;
+}
+
+.featured-products {
+    background-color: rgb(241, 241, 241);
+}
+
+.min-vh-50 {
+    min-height: 50vh !important;
+}
+
+.album-card {
+    margin-bottom: 50px;
 }
