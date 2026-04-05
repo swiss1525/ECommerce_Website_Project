@@ -153,9 +153,15 @@
 
     <div class="categories mb-5">
       <h2 class="text-center mb-5 category-title">Categories</h2>
+      <div class="d-flex justify-content-center gap-2 flex-wrap my-4">
+  <button class="btn btn-outline-primary filter-btn" id="all">All</button>
+  <button class="btn btn-outline-primary filter-btn" id="albums">Albums</button>
+  <button class="btn btn-outline-primary filter-btn" id="artists">Artists</button>
+  <button class="btn btn-outline-primary filter-btn" id="vinyl">Vinyl</button>
+</div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-6 product"  id="vinyl-1">
             <div
               class="mt-3 category-card align-items-center d-flex flex-column"
             >
@@ -172,7 +178,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6 product" id="cd-1">
             <div
               class="mt-3 category-card align-items-center d-flex flex-column"
             >
@@ -184,7 +190,7 @@
                   style="width: 100%"
                 />
                 <div class="card-img-overlay text-center">
-                  <a href="#">Vinyl</a>
+                  <a href="#">CD</a>
                 </div>
               </div>
             </div>
@@ -192,9 +198,12 @@
         </div>
       </div>
     </div>
+    <!--Featured Partners-->
+    <h2 class="featured-partners">Our Partners</h2>
     <!--Footer-->
     <footer class="bg-light text-center py-3 footer">
       <p>&copy; 2026 My Store. All rights reserved.</p>
     </footer>
   </body>
+  <script src="/js/index.js"></script>
 </html>

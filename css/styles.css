@@ -42,6 +42,14 @@
     color: #ffcc00;
 }
 
+.featured-products, .categories, .featured-partners{
+  padding-top: 50px;
+}
+
+.featured-partners {
+  text-align:  center;
+}
+
 h2 {
     font-size: 50px !important;
     font-family: Figtree-Bold !important;
@@ -57,4 +65,29 @@ h2 {
 
 .album-card {
     margin-bottom: 50px;
+}
+
+img:hover {
+    transform: scale(1.05);
+    transition: ease-in 0.2s;
+}
+.list-unstyled li {
+  width: 100%;
+}
+
+.list-unstyled a {
+    gap: 20px;
+    text-decoration: none;
+    font-size: 30px;
+    background-color: #e0e0e0;
+}
+
+aside {
+    background-color: #ececec;
+    padding: 20px;
+    height: 100vh;
+}
+
+.products-content {
+    padding: 20px;
 }
