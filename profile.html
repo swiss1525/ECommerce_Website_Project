@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="profileTitle"></title>
+  </head>
+  <body>
+    <div id="userInfo"></div>
+  </body>
+  <script>
+    // Check if user is logged in
+    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    let recentPurchases = JSON.parse(localStorage.getItem("orders")) || [];
+    let purchases = "";
+
+    let purchasesHTML = "";
+
+    if (recentPurchases.length > 0) {
+      purchasesHTML = recentPurchases
+        .map(
+          (order) => `
+        <li>
+            <strong>Order ID:</strong> ${order.id} - 
+            <strong>Total:</strong> $${order.total.toFixed(2)} - 
+            <strong>Date:</strong> ${new Date(order.date).toLocaleDateString()}
+        </li>
+    `,
+        )
+        .join("");
+    } else {
+      purchasesHTML = "<p>No recent purchases found.</p>";
+    }
+
+    if (currentUser) {
+      document.getElementById("profileTitle").textContent =
+        `${currentUser.username}'s Profile`;
+      document.getElementById("userInfo").innerHTML = `
+        <h1>Welcome, ${currentUser.username}!</h1>
+        <p><strong>Username:</strong> ${currentUser.username}</p>
+        <p><strong>Email:</strong> ${currentUser.email}</p>
+        <hr>
+        <h2>Recent Purchases:</h2>
+        <ul>
+        ${purchasesHTML}        
+        </ul>
+        `;
+    } else {
+      document.getElementById("profileTitle").textContent = "Profile";
+      document.getElementById("userInfo").innerHTML =
+        "<p>Please log in to view your profile information.</p>";
+    }
+  </script>
+</html>

@@ -1,6 +1,7 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let checkoutForm = document.getElementById("checkoutForm");
 let confirmationMessage = document.getElementById("confirmationMessage");
+let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 function updateOrderSummary() {
   let orderSummary = document.getElementById("orderSummary");
@@ -44,6 +45,11 @@ function showPaymentFields() {
 
 checkoutForm.addEventListener("submit", function (event) {
   event.preventDefault();
+
+  if (!currentUser) {
+    alert("Please log in before checking out.");
+    return;
+  }
 
   let customerName = document.getElementById("customerName").value.trim();
   let customerAddress = document.getElementById("customerAddress").value.trim();
@@ -115,6 +121,7 @@ checkoutForm.addEventListener("submit", function (event) {
   let newOrder = {
     orderId: Date.now(),
     customerName: customerName,
+    userId: currentUser.id,
     customerAddress: customerAddress,
     customerPostalCode: customerPostalCode,
     paymentMethod: paymentMethod,
