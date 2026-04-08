@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <div id="NavbarComponent"></div>
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-3">
@@ -29,13 +30,21 @@
               class="form-control mb-4"
               placeholder="Search a product..."
             />
-            <ul class="list-unstyled">
-              <li><a href="#">All</a></li>
-              <li><a href="#">CD</a></li>
-              <li><a href="#">Vinyl</a></li>
-              <li><a href="#">Cassette</a></li>
-              <li><a href="#">Digital</a></li>
-            </ul>
+              <button class="btn btn-outline-primary filter-btn" id="all">
+                All
+              </button>
+              <button class="btn btn-outline-primary filter-btn" id="albums">
+                Albums
+              </button>
+              <button class="btn btn-outline-primary filter-btn" id="artists">
+                Artists
+              </button>
+              <button class="btn btn-outline-primary filter-btn" id="vinyls">
+                Vinyl
+              </button>
+              <button class="btn btn-outline-primary filter-btn" id="songs">
+                Songs
+              </button>
           </aside>
         </div>
         <div class="col-md-9 products-content">
@@ -50,4 +59,6 @@
     </div>
   </body>
   <script src="js/products-page.js"></script>
+  <script src="js/menu-cart.js" defer></script>
+  <script src="js/global-components.js"></script>
 </html>

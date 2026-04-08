@@ -4,33 +4,40 @@ let featuredProducts = [
   {
     name: "HIT ME HARD AND SOFT DIGITAL ALBUM",
     price: 19.99,
+    type: "Digital Album",
     image: "images\\Homepage_Featured\\HIT_ME_HARD_AND_SOFT.jpg",
   },
   {
-    name: "BTS 'ARIRANG' VINYL",
-    price: 39.99,
+    name: "BTS 'ARIRANG' DIGITAL ALBUM",
+    price: 29.99,
+    type: "Digital Album",
     image: "images\\Homepage_Featured\\BTS_Arirang_digital_album_cover.jpg",
+    description: "Experience the soulful melodies of BTS with 'Arirang' on digital platforms. This album captures the essence of Korean culture and BTS's unique sound, making it a must-have for any music enthusiast."
   },
   {
     name: "BRUNO MARS 'AN EVENING WITH SILK SONIC' VINYL",
     price: 39.99,
+    type: "Vinyl",
     image: "images\\Homepage_Featured\\bruno-mars-the-romantic.jpeg",
   },
   {
     name: "TAYLOR SWIFT 'TLOAS' ALBUM",
     price: 29.99,
     discount: 22.99,
+    type: "Physical Album",
     image: "images\\Homepage_Featured\\The_Life_of_a_Showgirl.jpg",
   },
   {
     name: "JUSTIN BIEBER 'SWAG' ALBUM",
     price: 29.99,
+    type: "Physical Album",
     image: "images\\Homepage_Featured\\swag_justin_bieber.jpg",
   },
   {
     name: "NIRVANA 'NEVERMIND' VINYL",
     price: 39.99,
     discount: 20.99,
+    type: "Vinyl",
     image: "images\\Homepage_Featured\\nirvana_nevermind.jpg",
   },
 ];
@@ -48,7 +55,7 @@ for (let i = 0; i < featuredProducts.length; i++) {
       class="card-img-top featured-product-image"
       alt="${featuredProducts[i].name}"
     >
-
+ 
     <div class="card-body d-flex flex-column text-center">
 
       <h5 class="card-title fw-bold">
@@ -114,6 +121,7 @@ function viewFeaturedProduct(index) {
     price: product.discount || product.price,
     originalPrice: product.discount ? product.price : null,
     image: product.image,
+    type : product.type,
     description: product.description || "No description available.",
   };
 

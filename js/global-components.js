@@ -1,10 +1,10 @@
 function Navbar() {
-    let navbar = document.getElementById("NavbarComponent");
+  let navbar = document.getElementById("NavbarComponent");
 
-    navbar.innerHTML = `
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  navbar.innerHTML = `
+    <nav style="background-color: red" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">My Store</a>
+        <a class="navbar-brand" href="index.html">My Store</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -58,3 +58,41 @@ function Navbar() {
 }
 
 Navbar();
+
+let profileMenu = document.getElementById("Profile");
+let user = JSON.parse(localStorage.getItem("currentUser"));
+if (user) {
+  profileMenu.innerHTML = ` <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="cartDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                ${user.username}
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+              >
+                <li><class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                <li><a class="dropdown-item" href="cart.html">Your cart</a></li>
+                <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
+                <hr>
+                <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+              </ul>`;
+} else {
+  profileMenu.innerHTML = `<a class="nav-link" href="registration-page.html">Login/Register</a>`;
+}
+
+  let logoutBtn = document.getElementById("logoutBtn");
+
+  logoutBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    localStorage.removeItem("currentUser");
+    window.location.href = "index.html";
+  });
+
+

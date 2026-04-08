@@ -19,20 +19,32 @@
   </head>
 
   <body>
-    <div class="container text-center">
+    <!-- Navbar -->
+    <div id="NavbarComponent"></div>
+
+
+    <div class="container mt-5">
       <div class="row">
-        <div class="align-items-center d-flex flex-column">
-          <img style="width: 50%; margin: auto" id="productImage" />
-          <h2 id="productName"></h2>
-          <p id="productDescription"></p>
-          <h4 id="productPrice"></h4>
-          <input type="number" id="quantityInput" value="0" min="0" step="1" />
-          <h4 id="totalPrice">Total:</h4>
-          <button id="addToCartButton" class="btn btn-primary">Add to Cart</button>
-          <button class="btn btn-secondary" onclick="window.location.href='/cart.html'">View Cart</button>
+        <div class="col-lg-6 col-md-12">
+          <img style="width: 100%; margin: auto" id="productImage" />
+
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <h1 id="productName"></h1>
+            <h4 id="originalPrice"></h4>
+            <p id="productDescription"></p>
+            <p style=" font-size: large;" id="type"></p>
+            <h3 style="font-weight: 700;">Price: <span id="productPrice"></span></h3>
+            <input type="number" id="quantityInput" min="1" max="10" step="1" />
+            <br>
+            <br>
+            <h4 id="totalPrice">Total:</h4>
+            <button id="addToCartButton" class="btn btn-primary">Add to Cart</button>
+            <button class="btn btn-secondary" onclick="window.location.href='/cart.html'">View Cart</button>
         </div>
       </div>
     </div>
   </body>
   <script src="js/product-details.js"></script>
+  <script src="js/global-components.js"></script>
 </html>

@@ -12,7 +12,7 @@
 }
 
 .Hero-Container {
-  background-color: aqua;
+  background-color: #0B5ED7;
 }
 
 .Hero-Title {
@@ -20,6 +20,7 @@
   text-align: center;
   font-size: 95px;
   font-family: Figtree-Black;
+  color: white;
 }
 
 .CTA {
@@ -27,7 +28,16 @@
   font-size: 30px !important;
   padding: 10px 30px !important;
 }
+.btn-primary-CTA {
+  background-color: #ffffff !important;
+  border: none !important;
+  color: black !important;
+}
 
+.btn-primary-CTA:hover {
+  background-color: #000000 !important;
+  color: rgb(255, 255, 255) !important;
+}
 
 .category-card p,
 .category-card h4 {
@@ -81,7 +91,7 @@ h2 {
     gap: 20px;
     text-decoration: none;
     font-size: 30px;
-    background-color: #e0e0e0;
+    font-weight: 700;
 }
 
 aside {

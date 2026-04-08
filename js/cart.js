@@ -7,6 +7,7 @@
     localStorage.setItem("cart", JSON.stringify(cart));
   }
 
+
   function updateCart() {
     let html = "";
     let total = 0;
@@ -55,15 +56,20 @@
       quantity = 1;
     }
 
+    if (quantity > 10) {
+      quantity = 10;;
+      alert("Maximum quantity is 10.");
+    }
+
     cart[index].quantity = quantity;
     saveCart();
-    renderCart();
+    updateCart();
   }
 
   function removeItem(index) {
     cart.splice(index, 1);
     saveCart();
-    renderCart();
+    updateCart();
   }
 
   updateCart();
