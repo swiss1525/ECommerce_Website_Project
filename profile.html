@@ -9,29 +9,29 @@
     <div id="userInfo"></div>
   </body>
   <script>
-    // Check if user is logged in
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
     let recentPurchases = JSON.parse(localStorage.getItem("orders")) || [];
     let purchases = "";
 
     let purchasesHTML = "";
-
+    
     if (recentPurchases.length > 0) {
       purchasesHTML = recentPurchases
-        .map(
-          (order) => `
+      .map(
+        (order) => `
         <li>
-            <strong>Order ID:</strong> ${order.id} - 
-            <strong>Total:</strong> $${order.total.toFixed(2)} - 
-            <strong>Date:</strong> ${new Date(order.date).toLocaleDateString()}
-        </li>
-    `,
+          <strong>Order ID:</strong> ${order.id} - 
+          <strong>Total:</strong> $${order.total.toFixed(2)} - 
+          <strong>Date:</strong> ${new Date(order.date).toLocaleDateString()}
+          </li>
+          `,
         )
         .join("");
-    } else {
-      purchasesHTML = "<p>No recent purchases found.</p>";
-    }
-
+      } else {
+        purchasesHTML = "<p>No recent purchases found.</p>";
+      }
+      
+      // Check if user is logged in and display profile information
     if (currentUser) {
       document.getElementById("profileTitle").textContent =
         `${currentUser.username}'s Profile`;

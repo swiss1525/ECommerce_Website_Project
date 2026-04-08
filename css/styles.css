@@ -7,6 +7,10 @@
   src: url(/fonts/Figtree/Figtree-Bold.ttf);
 }
 
+.bg-new {
+  background-color: #16cb55 !important;
+}
+
 .Hero-Container {
   background-color: aqua;
 }
@@ -24,22 +28,24 @@
   padding: 10px 30px !important;
 }
 
+
 .category-card p,
 .category-card h4 {
   color: white;
 }
 
-.card-img-overlay a {
-    text-decoration: none;
-    color: white;
-    font-size: 50px;
-    font-family: Figtree-Bold;
-    letter-spacing: 5px;
-    transition: ease-in 0.2s;
+
+.card-img-top {
+  height: 300px;
+  object-fit: cover;
 }
 
-.card-img-overlay a:hover {
-    color: #ffcc00;
+.card {
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
 }
 
 .featured-products, .categories, .featured-partners{
@@ -67,10 +73,6 @@ h2 {
     margin-bottom: 50px;
 }
 
-img:hover {
-    transform: scale(1.05);
-    transition: ease-in 0.2s;
-}
 .list-unstyled li {
   width: 100%;
 }
@@ -90,4 +92,26 @@ aside {
 
 .products-content {
     padding: 20px;
+}
+
+.product-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    transition: 0.2s ease;
+}
+
+.product-name:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.featured-product-image {
+  height: 370px;
+  object-fit: cover;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.2s ease;
 }

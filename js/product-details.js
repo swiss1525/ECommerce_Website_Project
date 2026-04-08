@@ -8,7 +8,8 @@ if (!product) {
 
   document.getElementById("productImage").src = product.image;
   document.getElementById("productName").innerText = product.name;
-  document.getElementById("productDescription").innerText = product.description;
+  document.getElementById("productDescription").innerText =
+  product.description || "No description available.";
   document.getElementById("productPrice").innerText = product.price;
 
   function updateTotal() {
@@ -27,7 +28,7 @@ if (!product) {
   quantityInput.addEventListener("input", updateTotal);
 }
 
-let addToCartBtn = document.querySelector(".btn-primary");
+let addToCartBtn = document.getElementById("addToCartButton");
 
 addToCartBtn.addEventListener("click", function () {
   let quantity = parseInt(document.getElementById("quantityInput").value);

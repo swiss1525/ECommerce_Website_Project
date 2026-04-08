@@ -16,37 +16,11 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="#">My Store</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <!-- Navbar -->
+    <div id="NavbarComponent"></div>
     <!-- Hero Section -->
 
     <div class="Hero-Container mb-5 pb-5">
@@ -54,156 +28,84 @@
         <p class="Hero-Title text-center-md-start">
           Every Album. Every Artist. One Place.
         </p>
-        <button class="btn btn-primary CTA">Shop Now</button>
+        <a href="products.html" class="btn btn-primary CTA">Shop Now</a>
       </div>
     </div>
 
     <!--Featured Products-->
 
-    <div class="featured-products">
-      <h2 class="text-center mb-5">Featured Products</h2>
+    <div class="featured-products pb-5">
+      <h2 class="text-center">Featured Albums</h2>
       <div class="container">
-        <div class="row">
-          <div
-            class="album-card col-lg-6 d-flex justify-content-center align-items-center"
-          >
-            <div class="card" style="width: 400px">
-              <img
-                class="card-img-top"
-                src="/images/dark-side-of-the-moon-album.jpg"
-                alt="Card image"
-                style="width: 100%"
-              />
-              <div class="card-body">
-                <h4 class="card-title">John Doe</h4>
-                <p class="card-text">
-                  Some example text some example text. John Doe is an architect
-                  and engineer
-                </p>
-                <a href="#" class="btn btn-primary">See Profile</a>
-              </div>
-            </div>
-          </div>
-          <div
-            class="album-card col-lg-6 d-flex justify-content-center align-items-center"
-          >
-            <div class="card" style="width: 400px">
-              <img
-                class="card-img-top"
-                src="/images/dark-side-of-the-moon-album.jpg"
-                alt="Card image"
-                style="width: 100%"
-              />
-              <div class="card-body">
-                <h4 class="card-title">John Doe</h4>
-                <p class="card-text">
-                  Some example text some example text. John Doe is an architect
-                  and engineer
-                </p>
-                <a href="#" class="btn btn-primary">See Profile</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div
-            class="album-card col-lg-6 d-flex justify-content-center align-items-center"
-          >
-            <div class="card" style="width: 400px">
-              <img
-                class="card-img-top"
-                src="/images/dark-side-of-the-moon-album.jpg"
-                alt="Card image"
-                style="width: 100%"
-              />
-              <div class="card-body">
-                <h4 class="card-title">John Doe</h4>
-                <p class="card-text">
-                  Some example text some example text. John Doe is an architect
-                  and engineer
-                </p>
-                <a href="#" class="btn btn-primary">See Profile</a>
-              </div>
-            </div>
-          </div>
-          <div
-            class="album-card col-lg-6 d-flex justify-content-center align-items-center"
-          >
-            <div class="card" style="width: 400px">
-              <img
-                class="card-img-top"
-                src="/images/dark-side-of-the-moon-album.jpg"
-                alt="Card image"
-                style="width: 100%"
-              />
-              <div class="card-body">
-                <h4 class="card-title">John Doe</h4>
-                <p class="card-text">
-                  Some example text some example text. John Doe is an architect
-                  and engineer
-                </p>
-                <a href="#" class="btn btn-primary">See Profile</a>
-              </div>
-            </div>
-          </div>
+        <div class="row" id="product-list">
+          <div id="product-list"></div>
         </div>
       </div>
     </div>
+
     <!--Categories Section-->
 
     <div class="categories mb-5">
-      <h2 class="text-center mb-5 category-title">Categories</h2>
+      <h2 class="text-center mb-5 category-title">
+        Featured Products by Category
+      </h2>
       <div class="d-flex justify-content-center gap-2 flex-wrap my-4">
-  <button class="btn btn-outline-primary filter-btn" id="all">All</button>
-  <button class="btn btn-outline-primary filter-btn" id="albums">Albums</button>
-  <button class="btn btn-outline-primary filter-btn" id="artists">Artists</button>
-  <button class="btn btn-outline-primary filter-btn" id="vinyl">Vinyl</button>
-</div>
+        <button class="btn btn-outline-primary filter-btn" id="all">All</button>
+        <button class="btn btn-outline-primary filter-btn" id="albums">
+          Albums
+        </button>
+        <button class="btn btn-outline-primary filter-btn" id="artists">
+          Artists
+        </button>
+        <button class="btn btn-outline-primary filter-btn" id="vinyl">
+          Vinyl
+        </button>
+        <button class="btn btn-outline-primary filter-btn" id="songs">
+          Songs
+        </button>
+      </div>
       <div class="container">
-        <div class="row">
-          <div class="col-lg-6 product"  id="vinyl-1">
-            <div
-              class="mt-3 category-card align-items-center d-flex flex-column"
-            >
-              <div class="card img-fluid" style="width: 500px">
-                <img
-                  class="card-img-top"
-                  src="/images/vinyl.jpg"
-                  alt="Card image"
-                  style="width: 100%"
-                />
-                <div class="card-img-overlay text-center">
-                  <a href="#">Vinyl</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 product" id="cd-1">
-            <div
-              class="mt-3 category-card align-items-center d-flex flex-column"
-            >
-              <div class="card img-fluid" style="width: 500px">
-                <img
-                  class="card-img-top"
-                  src="/images/vinyl.jpg"
-                  alt="Card image"
-                  style="width: 100%"
-                />
-                <div class="card-img-overlay text-center">
-                  <a href="#">CD</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="row" id="category-product-list"></div>
       </div>
     </div>
     <!--Featured Partners-->
-    <h2 class="featured-partners">Our Partners</h2>
+    <section>
+      <div class="container">
+        <h2 class="featured-partners">Artist Showcase</h2>
+        <section class="artist-showcase">
+          <div class="slider-container">
+            <img width="100%" id="sliderImage" src="" alt="Artist Showcase" />
+          </div>
+          <div class="slider-text">
+            <h2 id="sliderTitle"></h2>
+            <p id="sliderDescription"></p>
+          </div>
+
+          <button
+            style="margin: 10px"
+            class="btn btn-outline-primary"
+            id="prevBtn"
+          >
+            Previous
+          </button>
+          <button
+            style="margin: 10px"
+            class="btn btn-outline-primary"
+            id="nextBtn"
+          >
+            Next
+          </button>
+        </section>
+      </div>
+    </section>
     <!--Footer-->
     <footer class="bg-light text-center py-3 footer">
       <p>&copy; 2026 My Store. All rights reserved.</p>
     </footer>
   </body>
-  <script src="js/index.js"></script>
+  <script src="js/menu-cart.js"></script>
+  <script src="js/index/categories.js"></script>
+  <script src="js/index/featured.js"></script>
+  <script src="js/index/artist-showcase.js"></script>
+  <script src="js/global-components.js"></script>
 </html>

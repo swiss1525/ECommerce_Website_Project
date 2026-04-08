@@ -1,4 +1,4 @@
-const productsCategory = [
+let productsCategory = [
   {
     name: "BTS 'ARIRANG' Vinyl",
     price: 60.99,
@@ -7,7 +7,7 @@ const productsCategory = [
   }
 ];
 
-const productList = document.getElementById("product-list");
+let productList = document.getElementById("product-list");
 
 for (let i = 0; i < productsCategory.length; i++) {
   productList.innerHTML += `
@@ -29,14 +29,14 @@ for (let i = 0; i < productsCategory.length; i++) {
   `;
 }
 
-const searchInput = document.getElementById("searchInput");
-const productCards = document.querySelectorAll(".card");
+let searchInput = document.getElementById("searchInput");
+let productCards = document.querySelectorAll(".card");
 
 searchInput.addEventListener("keyup", function () {
-  const searchValue = searchInput.value.toLowerCase();
+  let searchValue = searchInput.value.toLowerCase();
 
   for (let i = 0; i < productCards.length; i++) {
-    const productName = productCards[i]
+    let productName = productCards[i]
       .querySelector(".card-title")
       .innerText.toLowerCase();
 
