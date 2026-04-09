@@ -1,10 +1,10 @@
 @font-face {
   font-family: Figtree-Black;
-  src: url(../fonts/Figtree/Figtree-Black.ttf);
+  src: url(./fonts/Figtree/Figtree-Black.ttf);
 }
 @font-face {
   font-family: Figtree-Bold;
-  src: url(../fonts/Figtree/Figtree-Bold.ttf);
+  src: url(./fonts/Figtree/Figtree-Bold.ttf);
 }
 
 .bg-new {
