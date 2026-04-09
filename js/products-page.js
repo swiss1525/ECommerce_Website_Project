@@ -4,7 +4,7 @@ let productsCategory = [
     name: "BTS 'ARIRANG' Vinyl",
     price: 60.99,
     type: "Vinyl",
-    image: "/images/bts_arirang.jpg",
+    image: "./images/bts_arirang.jpg",
     description:
       "Experience the magic of BTS with the 'ARIRANG' vinyl. This limited edition release features exclusive tracks and stunning artwork, making it a must-have for any ARMY. Immerse yourself in the world of BTS and enjoy the rich sound quality of vinyl.",
   },
@@ -13,7 +13,7 @@ let productsCategory = [
     name: "EMINEM 'DEATH OF SLIM SHADY' ALBUM",
     price: 39.99,
     type: "Album",
-    image: "images/Products/coup_de_grace_eminem.jpeg",
+    image: "./images/Products/coup_de_grace_eminem.jpeg",
     description: "The ultimate album by eminem",
   },
 ];
