@@ -1,114 +1,103 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <div id="NavbarComponent"></div>
-    <!-- Hero Section -->
 
-    <div class="Hero-Container mb-5 pb-5">
-      <div class="container mt-5 align-items-center d-flex flex-column">
-        <p class="Hero-Title text-center-md-start">
-          Every Album. Every Artist. One Place.
-        </p>
-        <a href="products.html" class="btn btn-primary-CTA CTA">Shop Now</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div id="NavbarComponent"></div>
+  <!-- Hero Section -->
+
+  <div class="Hero-Container mb-5 pb-5">
+    <div class="container mt-5 align-items-center d-flex flex-column">
+      <p class="Hero-Title text-center-md-start">
+        Every Album. Every Artist. One Place.
+      </p>
+      <a href="products.html" class="btn btn-primary-CTA CTA">Shop Now</a>
+    </div>
+  </div>
+
+  <!--Featured Products-->
+
+  <div class="featured-products pb-5">
+    <h2 class="text-center">Featured Albums</h2>
+    <div class="container">
+      <div class="row" id="product-list">
+        <div id="product-list"></div>
       </div>
     </div>
+  </div>
 
-    <!--Featured Products-->
+  <!--Categories Section-->
 
-    <div class="featured-products pb-5">
-      <h2 class="text-center">Featured Albums</h2>
-      <div class="container">
-        <div class="row" id="product-list">
-          <div id="product-list"></div>
+  <div class="categories mb-5">
+    <h2 class="text-center mb-5 category-title">
+      Featured Products by Category
+    </h2>
+    <div class="d-flex justify-content-center gap-2 flex-wrap my-4">
+      <button class="btn btn-outline-primary filter-btn" id="all">All</button>
+      <button class="btn btn-outline-primary filter-btn" id="albums">
+        Albums
+      </button>
+      <button class="btn btn-outline-primary filter-btn" id="artists">
+        Artists
+      </button>
+      <button class="btn btn-outline-primary filter-btn" id="vinyl">
+        Vinyl
+      </button>
+      <button class="btn btn-outline-primary filter-btn" id="songs">
+        Songs
+      </button>
+    </div>
+    <div class="container">
+      <div class="row" id="category-product-list"></div>
+    </div>
+  </div>
+  <!--Featured Partners-->
+  <section>
+    <div class="container">
+      <h2 class="featured-partners">Artist Showcase</h2>
+      <section class="artist-showcase">
+        <div class="slider-container">
+          <img width="100%" id="sliderImage" src="" alt="Artist Showcase" />
         </div>
-      </div>
+        <div class="slider-text">
+          <h2 id="sliderTitle"></h2>
+          <p id="sliderDescription"></p>
+        </div>
+
+        <button style="margin: 10px" class="btn btn-outline-primary" id="prevBtn">
+          Previous
+        </button>
+        <button style="margin: 10px" class="btn btn-outline-primary" id="nextBtn">
+          Next
+        </button>
+      </section>
     </div>
-
-    <!--Categories Section-->
-
-    <div class="categories mb-5">
-      <h2 class="text-center mb-5 category-title">
-        Featured Products by Category
-      </h2>
-      <div class="d-flex justify-content-center gap-2 flex-wrap my-4">
-        <button class="btn btn-outline-primary filter-btn" id="all">All</button>
-        <button class="btn btn-outline-primary filter-btn" id="albums">
-          Albums
-        </button>
-        <button class="btn btn-outline-primary filter-btn" id="artists">
-          Artists
-        </button>
-        <button class="btn btn-outline-primary filter-btn" id="vinyl">
-          Vinyl
-        </button>
-        <button class="btn btn-outline-primary filter-btn" id="songs">
-          Songs
-        </button>
-      </div>
-      <div class="container">
-        <div class="row" id="category-product-list"></div>
-      </div>
-    </div>
-    <!--Featured Partners-->
-    <section>
-      <div class="container">
-        <h2 class="featured-partners">Artist Showcase</h2>
-        <section class="artist-showcase">
-          <div class="slider-container">
-            <img width="100%" id="sliderImage" src="" alt="Artist Showcase" />
-          </div>
-          <div class="slider-text">
-            <h2 id="sliderTitle"></h2>
-            <p id="sliderDescription"></p>
-          </div>
-
-          <button
-            style="margin: 10px"
-            class="btn btn-outline-primary"
-            id="prevBtn"
-          >
-            Previous
-          </button>
-          <button
-            style="margin: 10px"
-            class="btn btn-outline-primary"
-            id="nextBtn"
-          >
-            Next
-          </button>
-        </section>
-      </div>
-    </section>
-    <!--Footer-->
-    <footer class="bg-light text-center py-3 footer">
-      <p>&copy; 2026 My Store. All rights reserved.</p>
-    </footer>
-    <!--       _
+  </section>
+  <!--Footer-->
+  <footer class="bg-light text-center py-3 footer">
+    <p>&copy; 2026 My Store. All rights reserved.</p>
+  </footer>
+  <!--       _
        .__(.)< (MEOW)
         \___)   
  ~~~~~~~~~~~~~~~~~~-->
-  </body>
-  <script src="js/menu-cart.js" defer></script>
-  <script src="js/index/categories.js"></script>
-  <script src="js/index/featured.js"></script>
-  <script src="js/index/artist-showcase.js"></script>
-  <script src="js/global-components.js"></script>
+</body>
+<script src="js/menu-cart.js" defer></script>
+<script src="js/index/categories.js"></script>
+<script src="js/index/featured.js"></script>
+<script src="js/index/artist-showcase.js"></script>
+<script src="js/global-components.js"></script>
+
 </html>

@@ -13,4 +13,20 @@ contactForm.addEventListener('submit', function(event) {
         alert('Please fill in all fields.');
         return;
     }
-});
+
+    let messageSubmitted = {
+        email: email,
+        name: name,
+        message: message
+    }
+
+      localStorage.setItem("messageSubmitted", JSON.stringify(messageSubmitted));
+
+      console.log(messageSubmitted);
+      alert("Message submitted (View console)");
+ClearForm();
+      
+    });
+    function ClearForm() {
+        contactForm.reset();
+    }

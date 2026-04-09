@@ -3,9 +3,13 @@ let checkoutForm = document.getElementById("checkoutForm");
 let confirmationMessage = document.getElementById("confirmationMessage");
 let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
+let GSTtaxes = 0.05;
+let QSTtaxes = 0.0975;
+
 function updateOrderSummary() {
   let orderSummary = document.getElementById("orderSummary");
   let orderTotal = document.getElementById("orderTotal");
+
   let html = "";
   let total = 0;
   if (cart.length === 0) {
@@ -20,12 +24,39 @@ function updateOrderSummary() {
     html += `<div> <h4>${cart[i].name}</h4> 
     <p>Price: $${cart[i].price.toFixed(2)}</p> 
     <p>Quantity: ${cart[i].quantity}</p> 
-    <p>Item Total: $${itemTotal.toFixed(2)}</p> </div> <hr>`;
+    <hr>
+    <p>Item Total: $${itemTotal.toFixed(2)}</p>
+    </div> <hr>`;
   }
   orderSummary.innerHTML = html;
-  orderTotal.innerText = "Total: $" + total.toFixed(2);
+  let totalAfterGST = total * GSTtaxes;
+  let totalAfterQST = total * QSTtaxes;
+
+  let totalAfterTaxes = (totalAfterGST + totalAfterQST) + total;
+
+  orderTotal.innerHTML = `
+  <p style="font-size: 15px">GST: ${GSTtaxes}</p>
+  <p style="font-size: 15px">QST: ${QSTtaxes}</p>
+  <p style="font-size: 15px;">Base Total: ${total}</p>
+
+
+  <hr>
+  <span id="total" style="font-weight: 700">Paying Total: $${totalAfterTaxes.toFixed(2)}</span>`;
 }
-updateOrderSummary();
+
+  let discountCode = "COLLEGELASALLE";
+  let discountInput = document.getElementById("discount");
+  let applyBtn = document.getElementById("applyDiscount");
+
+  applyBtn.addEventListener("click", function () {
+    console.log("Clicked");
+
+    if (discountInput.value.trim().toUpperCase() === "COLLEGELASALLE") {
+      console.log("Correct");
+    } else {
+      console.log("Invalid");
+    }
+  });
 
 function showPaymentFields() {
   let method = document.getElementById("paymentMethod").value;
@@ -128,6 +159,11 @@ checkoutForm.addEventListener("submit", function (event) {
     orderDate: new Date().toLocaleDateString(),
     items: [...cart],
     total: total,
+
+    baseTotal: total,
+    GST: total * GSTtaxes,
+    QST: total * QSTtaxes,
+    finalTotal: total + (total * GSTtaxes) + (total * QSTtaxes)
   };
 
   orders.push(newOrder);
@@ -143,3 +179,7 @@ checkoutForm.addEventListener("submit", function (event) {
   updateOrderSummary();
   showPaymentFields();
 });
+
+
+
+updateOrderSummary();
