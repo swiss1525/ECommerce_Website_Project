@@ -35,28 +35,28 @@ function updateOrderSummary() {
   let totalAfterTaxes = (totalAfterGST + totalAfterQST) + total;
 
   orderTotal.innerHTML = `
-  <p style="font-size: 15px">GST: ${GSTtaxes}</p>
-  <p style="font-size: 15px">QST: ${QSTtaxes}</p>
-  <p style="font-size: 15px;">Base Total: ${total}</p>
+  <p style="font-size: 15px">GST: $${(GSTtaxes * total).toFixed(2)}</p>
+  <p style="font-size: 15px">QST: $${(QSTtaxes * total).toFixed(2)}</p>
+  <p style="font-size: 15px;">Subotal: ${total.toFixed(2)}</p>
 
 
   <hr>
-  <span id="total" style="font-weight: 700">Paying Total: $${totalAfterTaxes.toFixed(2)}</span>`;
+  <span id="total" style="font-weight: 700">Total: $${totalAfterTaxes.toFixed(2)}</span>`;
 }
 
-  let discountCode = "COLLEGELASALLE";
-  let discountInput = document.getElementById("discount");
-  let applyBtn = document.getElementById("applyDiscount");
+let discountCode = "COLLEGELASALLE";
+let discountInput = document.getElementById("discount");
+let applyBtn = document.getElementById("applyDiscount");
 
-  applyBtn.addEventListener("click", function () {
-    console.log("Clicked");
+applyBtn.addEventListener("click", function () {
+  console.log("Clicked");
 
-    if (discountInput.value.trim().toUpperCase() === "COLLEGELASALLE") {
-      console.log("Correct");
-    } else {
-      console.log("Invalid");
-    }
-  });
+  if (discountInput.value.trim().toUpperCase() === "COLLEGELASALLE") {
+    console.log("Correct");
+  } else {
+    console.log("Invalid");
+  }
+});
 
 function showPaymentFields() {
   let method = document.getElementById("paymentMethod").value;
@@ -111,6 +111,11 @@ checkoutForm.addEventListener("submit", function (event) {
       alert("Please fill in all credit card fields.");
       return;
     }
+    
+    if (isNaN(creditCardNumber) || creditCardNumber.includes(" ")) {
+      alert("Card number must be numeric.");
+      return;
+    }
   }
 
   if (paymentMethod === "debit") {
@@ -125,6 +130,11 @@ checkoutForm.addEventListener("submit", function (event) {
       alert("Please fill in all debit card fields.");
       return;
     }
+
+    if (isNaN(debitCardNumber) || debitCardNumber.includes(" ")) {
+      alert("Card number must be numeric.");
+      return;
+    }
   }
 
   if (paymentMethod === "paypal") {
@@ -134,6 +144,7 @@ checkoutForm.addEventListener("submit", function (event) {
       alert("Please fill in your PayPal email.");
       return;
     }
+    
   }
 
   if (cart.length === 0) {
@@ -169,8 +180,8 @@ checkoutForm.addEventListener("submit", function (event) {
   orders.push(newOrder);
   localStorage.setItem("orders", JSON.stringify(orders));
 
-  confirmationMessage.innerText =
-    "Order placed successfully! Thank you for your purchase.";
+  confirmationMessage.innerHTML =
+    `<p style="font-weight: bold; color: green"class="mt-3">Order placed successfully! Thank you for your purchase.</p>`;
 
   cart = [];
   localStorage.setItem("cart", JSON.stringify(cart));

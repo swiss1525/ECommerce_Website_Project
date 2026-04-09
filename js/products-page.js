@@ -22,8 +22,8 @@ let productList = document.getElementById("product-list");
 
 for (let i = 0; i < productsCategory.length; i++) {
   productList.innerHTML += `
-<div class="col-auto g-5  ">
-  <div class="card h-100 shadow-sm border-1 product-card" id="${productsCategory[i].id}">
+<div class="col-12 col-sm-6 col-md-4 col-lg-3  ">
+  <div class="card h-100 shadow-sm border-1 product-card " id="${productsCategory[i].id}">
 
     <img 
       src="${productsCategory[i].image}" 
@@ -31,7 +31,7 @@ for (let i = 0; i < productsCategory.length; i++) {
       alt="${productsCategory[i].name}"
     >
 
-    <div class="card-body">
+    <div class="card-body ">
 
       <h5 style="font-weight: 700" class="card-title">
         ${productsCategory[i].name}
@@ -40,7 +40,7 @@ for (let i = 0; i < productsCategory.length; i++) {
         $${productsCategory[i].price}
       </p>
       <a href="product-details.html" 
-         class="btn btn-primary mt-auto"
+         class="btn btn-primary d-flex justify-content-center mt-auto"
          onclick="viewFeaturedProduct(${i})">
         View Details
       </a>
@@ -51,6 +51,8 @@ for (let i = 0; i < productsCategory.length; i++) {
 `;
 
 }
+
+// Searching
 
 let searchInput = document.getElementById("searchInput");
 let productCards = document.querySelectorAll(".product-card");
@@ -63,13 +65,17 @@ searchInput.addEventListener("keyup", function () {
       .querySelector(".card-title")
       .innerText.toLowerCase();
 
+    let parentCol = productCards[i].parentElement;
+
     if (productName.includes(searchValue)) {
-      productCards[i].style.display = "block";
+      parentCol.style.display = "";
     } else {
-      productCards[i].style.display = "none";
+      parentCol.style.display = "none";
     }
   }
 });
+
+// Button Filtering
 
 let buttons = document.querySelectorAll(".filter-btn");
 let product = document.querySelectorAll(".product-card");
@@ -79,14 +85,18 @@ for (let i = 0; i < buttons.length; i++) {
     let category = buttons[i].id;
 
     for (let j = 0; j < product.length; j++) {
+      let parentCol = product[j].parentElement;
+
       if (category === "all" || product[j].id.startsWith(category)) {
-        product[j].style.display = "block";
+        parentCol.style.display = "";
       } else {
-        product[j].style.display = "none";
+        parentCol.style.display = "none";
       }
     }
   });
 }
+
+// Save the selected product to local storage
 
 function viewFeaturedProduct(index) {
   let product = productsCategory[index];

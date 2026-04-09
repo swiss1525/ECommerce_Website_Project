@@ -1,10 +1,10 @@
 @font-face {
   font-family: Figtree-Black;
-  src: url(/fonts/Figtree/Figtree-Black.ttf);
+  src: url(./fonts/Figtree/Figtree-Black.ttf);
 }
 @font-face {
   font-family: Figtree-Bold;
-  src: url(/fonts/Figtree/Figtree-Bold.ttf);
+  src: url(./fonts/Figtree/Figtree-Bold.ttf);
 }
 
 .bg-new {
@@ -67,7 +67,6 @@
 }
 
 h2 {
-    font-size: 50px !important;
     font-family: Figtree-Bold !important;
 }
 
@@ -97,7 +96,13 @@ h2 {
 aside {
     background-color: #ececec;
     padding: 20px;
-    height: 100vh;
+}
+
+/* Only apply full height on medium screens and up */
+@media (min-width: 768px) {
+    aside {
+        height: 100vh;
+    }
 }
 
 .products-content {
@@ -117,8 +122,9 @@ aside {
 }
 
 .featured-product-image {
-  height: 370px;
-  object-fit: cover;
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
 }
 
 .card:hover {

@@ -64,5 +64,7 @@ addToCartBtn.addEventListener("click", function () {
 
   localStorage.setItem("cart", JSON.stringify(cart));
 
-  alert("Added to cart!");
+  let productAdded = document.getElementById("productAdded");
+
+  productAdded.innerHTML = `Added to cart!`
 });

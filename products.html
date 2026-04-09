@@ -1,64 +1,47 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Products</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <div id="NavbarComponent"></div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-3">
-          <aside class="sidebar">
-            <h2>Categories</h2>
-            <input
-              type="text"
-              id="searchInput"
-              class="form-control mb-4"
-              placeholder="Search a product..."
-            />
-              <button class="btn btn-outline-primary filter-btn" id="all">
-                All
-              </button>
-              <button class="btn btn-outline-primary filter-btn" id="albums">
-                Albums
-              </button>
-              <button class="btn btn-outline-primary filter-btn" id="artists">
-                Artists
-              </button>
-              <button class="btn btn-outline-primary filter-btn" id="vinyls">
-                Vinyl
-              </button>
-              <button class="btn btn-outline-primary filter-btn" id="songs">
-                Songs
-              </button>
-          </aside>
-        </div>
-        <div class="col-md-9 products-content">
-          <h2>Products</h2>
-          <div class="container">
-            <div class="row" id="product-list">
-              <div id="product-list"></div>
-            </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <div id="NavbarComponent"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-md-3">
+        <aside class="sidebar">
+          <h2>Categories</h2>
+          <input type="text" id="searchInput" class="form-control mb-4" placeholder="Search a product..." />
+          <div class="d-flex flex-md-column flex-wrap gap-2">
+            <button class="btn btn-outline-primary filter-btn" id="all">All</button>
+            <button class="btn btn-outline-primary filter-btn" id="albums">Albums</button>
+            <button class="btn btn-outline-primary filter-btn" id="artists">Artists</button>
+            <button class="btn btn-outline-primary filter-btn" id="vinyls">Vinyl</button>
+            <button class="btn btn-outline-primary filter-btn" id="songs">Songs</button>
           </div>
+        </aside>
+      </div>
+
+      <div class="col-12 col-md-9 products-content">
+        <h2 style="font-size: 50px">Products</h2>
+        <div class="container">
+          <div class="row g-4" id="product-list"></div>
         </div>
       </div>
     </div>
-  </body>
-  <script src="js/products-page.js"></script>
-  <script src="js/menu-cart.js" defer></script>
-  <script src="js/global-components.js"></script>
+  </div>
+</body>
+<script src="js/products-page.js"></script>
+<script src="js/menu-cart.js" defer></script>
+<script src="js/global-components.js"></script>
+
 </html>
