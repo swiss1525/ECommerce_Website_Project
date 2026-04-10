@@ -3,60 +3,73 @@ let checkoutForm = document.getElementById("checkoutForm");
 let confirmationMessage = document.getElementById("confirmationMessage");
 let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
+let discountCode = "COLLEGELASALLE";
+let discountApplied = false;
+let discountRate = 0.2; // 20% discount
+let discount = document.getElementById("discount");
+
+let applyBtn = document.getElementById("applyDiscount");
+
+applyBtn.addEventListener("click", function () {
+  if (discount.value.trim().toUpperCase() === discountCode) {
+    discountApplied = true;
+    UpdateOrderPrice();
+  } else {
+    discountApplied = false;
+    alert("Invalid discount code.");
+  }
+});
+
 let GSTtaxes = 0.05;
 let QSTtaxes = 0.0975;
-
-function updateOrderSummary() {
+let discountedSubtotal = 0;
+function UpdateOrderPrice() {
   let orderSummary = document.getElementById("orderSummary");
   let orderTotal = document.getElementById("orderTotal");
 
   let html = "";
-  let total = 0;
+  let total = 0; // reset here
+
   if (cart.length === 0) {
     orderSummary.innerHTML = "<p>Your cart is empty.</p>";
     orderTotal.innerText = "Total: $0.00";
     return;
   }
+
   for (let i = 0; i < cart.length; i++) {
     let itemTotal = cart[i].price * cart[i].quantity;
     total += itemTotal;
 
-    html += `<div> <h4>${cart[i].name}</h4> 
-    <p>Price: $${cart[i].price.toFixed(2)}</p> 
-    <p>Quantity: ${cart[i].quantity}</p> 
-    <hr>
-    <p>Item Total: $${itemTotal.toFixed(2)}</p>
-    </div> <hr>`;
+    html += `<div>
+      <h4>${cart[i].name}</h4>
+      <p>Price: $${cart[i].price.toFixed(2)}</p>
+      <p>Quantity: ${cart[i].quantity}</p>
+      <hr>
+      <p>Item Total: $${itemTotal.toFixed(2)}</p>
+    </div><hr>`;
   }
-  orderSummary.innerHTML = html;
-  let totalAfterGST = total * GSTtaxes;
-  let totalAfterQST = total * QSTtaxes;
-
-  let totalAfterTaxes = (totalAfterGST + totalAfterQST) + total;
-
-  orderTotal.innerHTML = `
-  <p style="font-size: 15px">GST: $${(GSTtaxes * total).toFixed(2)}</p>
-  <p style="font-size: 15px">QST: $${(QSTtaxes * total).toFixed(2)}</p>
-  <p style="font-size: 15px;">Subotal: ${total.toFixed(2)}</p>
-
-
-  <hr>
-  <span id="total" style="font-weight: 700">Total: $${totalAfterTaxes.toFixed(2)}</span>`;
-}
-
-let discountCode = "COLLEGELASALLE";
-let discountInput = document.getElementById("discount");
-let applyBtn = document.getElementById("applyDiscount");
-
-applyBtn.addEventListener("click", function () {
-  console.log("Clicked");
-
-  if (discountInput.value.trim().toUpperCase() === "COLLEGELASALLE") {
-    console.log("Correct");
+  let discountConfirmed = document.getElementById("discountMessage");
+  
+  if (discountApplied) {
+    discountedSubtotal = total - total * discountRate;
+    discountConfirmed.innerText = "20% discount added to subtotal!"
   } else {
-    console.log("Invalid");
+    discountedSubtotal = total;
   }
-});
+  let gst = discountedSubtotal * GSTtaxes;
+  let qst = discountedSubtotal * QSTtaxes;
+  let finalTotal = discountedSubtotal + gst + qst;
+
+
+  orderSummary.innerHTML = html;
+  orderTotal.innerHTML = `
+  <p>Subtotal: $${discountedSubtotal.toFixed(2)}</p>
+  <p style="font-size:20px">GST: $${gst.toFixed(2)}</p>
+  <p style="font-size:20px">QST: $${qst.toFixed(2)}</p>
+    <hr>
+    <span style="font-weight: 700">Total: $${finalTotal.toFixed(2)}</span>
+  `;
+}
 
 function showPaymentFields() {
   let method = document.getElementById("paymentMethod").value;
@@ -111,7 +124,7 @@ checkoutForm.addEventListener("submit", function (event) {
       alert("Please fill in all credit card fields.");
       return;
     }
-    
+
     if (isNaN(creditCardNumber) || creditCardNumber.includes(" ")) {
       alert("Card number must be numeric.");
       return;
@@ -144,7 +157,6 @@ checkoutForm.addEventListener("submit", function (event) {
       alert("Please fill in your PayPal email.");
       return;
     }
-    
   }
 
   if (cart.length === 0) {
@@ -160,6 +172,14 @@ checkoutForm.addEventListener("submit", function (event) {
 
   let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
+  let savedTotal;
+
+  if (discountApplied) {
+    savedTotal = discountedSubtotal;
+  } else {
+    savedTotal = total;
+  }
+
   let newOrder = {
     orderId: Date.now(),
     customerName: customerName,
@@ -169,28 +189,26 @@ checkoutForm.addEventListener("submit", function (event) {
     paymentMethod: paymentMethod,
     orderDate: new Date().toLocaleDateString(),
     items: [...cart],
-    total: total,
+    total: savedTotal,
+    isDiscountApplied: discountApplied,
 
     baseTotal: total,
-    GST: total * GSTtaxes,
-    QST: total * QSTtaxes,
-    finalTotal: total + (total * GSTtaxes) + (total * QSTtaxes)
+    GST: savedTotal * GSTtaxes,
+    QST: savedTotal * QSTtaxes,
+    finalTotal: savedTotal + savedTotal * GSTtaxes + savedTotal * QSTtaxes,
   };
 
   orders.push(newOrder);
   localStorage.setItem("orders", JSON.stringify(orders));
 
-  confirmationMessage.innerHTML =
-    `<p style="font-weight: bold; color: green"class="mt-3">Order placed successfully! Thank you for your purchase.</p>`;
+  confirmationMessage.innerHTML = `<p style="font-weight: bold; color: green"class="mt-3">Order placed successfully! Thank you for your purchase.</p>`;
 
   cart = [];
   localStorage.setItem("cart", JSON.stringify(cart));
 
   checkoutForm.reset();
-  updateOrderSummary();
+  UpdateOrderPrice();
   showPaymentFields();
 });
 
-
-
-updateOrderSummary();
+UpdateOrderPrice();

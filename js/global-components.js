@@ -4,7 +4,7 @@ function Navbar() {
   navbar.innerHTML = `
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="index.html">My Store</a>
+        <a class="navbar-brand" href="index.html">The ULTIMATE Store</a>
         <button
           class="navbar-toggler"
           type="button"

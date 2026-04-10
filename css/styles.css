@@ -18,16 +18,17 @@
 .Hero-Title {
   margin-top: 50px;
   text-align: center;
-  font-size: 8vw;
+  font-size: clamp(2rem, 8vw, 6rem);
   font-family: Figtree-Black;
   color: white;
 }
 
 .CTA {
   font-weight: 700 !important;
-  font-size: 30px !important;
-  padding: 10px 30px !important;
+  font-size: clamp(1rem, 2.5vw, 1.8rem) !important;
+  padding: clamp(0.5rem, 1vw, 1rem) clamp(1rem, 3vw, 2.5rem) !important;
 }
+
 .btn-primary-CTA {
   background-color: #ffffff !important;
   border: none !important;

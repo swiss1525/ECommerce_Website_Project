@@ -1,4 +1,4 @@
- let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 let recentPurchases = JSON.parse(localStorage.getItem("orders")) || [];
 let purchasesHTML = "";
 
@@ -21,7 +21,8 @@ if (recentPurchases.length > 0) {
       <li>
         <strong>Order ID:</strong> ${order.orderId} - 
         <strong>Date:</strong> ${new Date(order.orderDate).toLocaleDateString()} -
-        <strong>Base Total:</strong> $${Number(order.total).toFixed(2)} - 
+<strong>Used Discount:</strong> ${order.isDiscountApplied ? "Yes" : "No"} - 
+        <strong>Subtotal:</strong> $${Number(order.total).toFixed(2)} - 
         <strong>Total:</strong> $${Number(order.finalTotal).toFixed(2)} - 
         <strong>Taxes:</strong> $${Number(order.GST).toFixed(2)} (GST) - $${Number(order.QST).toFixed(2)} (QST)
         <br><br>
@@ -36,12 +37,12 @@ if (recentPurchases.length > 0) {
 } else {
   purchasesHTML = "<p>No recent purchases found.</p>";
 }
-      
-      // Check if user is logged in and display profile information
-    if (currentUser) {
-      document.getElementById("profileTitle").textContent =
-        `${currentUser.username}'s Profile`;
-      document.getElementById("userInfo").innerHTML = `
+
+// Check if user is logged in and display profile information
+if (currentUser) {
+  document.getElementById("profileTitle").textContent =
+    `${currentUser.username}'s Profile`;
+  document.getElementById("userInfo").innerHTML = `
       <div class="container mt-4">
       
       <h1>Welcome, ${currentUser.username}!</h1>
@@ -54,8 +55,8 @@ if (recentPurchases.length > 0) {
       </ul>
       </div>
         `;
-    } else {
-      document.getElementById("profileTitle").textContent = "Profile";
-      document.getElementById("userInfo").innerHTML =
-        "<p>Please log in to view your profile information.</p>";
-    }
+} else {
+  document.getElementById("profileTitle").textContent = "Profile";
+  document.getElementById("userInfo").innerHTML =
+    "<p>Please log in to view your profile information.</p>";
+}

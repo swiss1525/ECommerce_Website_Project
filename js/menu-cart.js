@@ -13,7 +13,6 @@ if (cartItems.length > 0) {
         cartMenu.appendChild(li);
     });
 
-    // ✅ Add this ONCE, outside the loop
     cartMenu.innerHTML += `
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="cart.html">View Cart</a></li>
