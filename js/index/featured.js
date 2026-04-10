@@ -69,44 +69,64 @@ for (let i = 0; i < featuredProducts.length; i++) {
         $${featuredProducts[i].discount}
       </p>
 </div>
-      <a href="product-details.html" 
-         class="btn btn-primary mt-auto"
-         onclick="viewFeaturedProduct(${i})">
-        View Details
-      </a>
+<div class="col-auto">
 
-    </div>
-  </div>
+<a href="product-details.html" 
+   class="btn btn-primary mt-auto"
+   onclick="viewFeaturedProduct(${i})">
+  View Details
+</a>
+<a
+style="background-color: green; border-color: green"
+class="btn btn-primary mt-auto"
+onclick="AddToCart(${i})">
+Add To Cart
+</a>
+
 </div>
+
+</div>
+  </div>
+  </div>
 `;
   } else {
     productList.innerHTML += `
-<div class="col-md-6 col-lg-4 g-5">
-  <div class="card h-100 shadow-sm border-0">
-
+    <div class="col-md-6 col-lg-4 g-5">
+    <div class="card h-100 shadow-sm border-0">
+    
     <img 
       src="${featuredProducts[i].image}" 
       class="card-img-top featured-product-image"
       alt="${featuredProducts[i].name}"
-    >
+      >
 
-    <div class="card-body d-flex flex-column text-center">
-
+      <div class="card-body d-flex flex-column text-center">
+      
       <h5 class="card-title fw-bold">
-        ${featuredProducts[i].name}
+      ${featuredProducts[i].name}
       </h5>
-
+      
       <p class="card-text text-success fw-semibold fs-5">
-        $${featuredProducts[i].price}
+      $${featuredProducts[i].price}
       </p>
 
-      <a href="product-details.html" 
-         class="btn btn-primary mt-auto"
-         onclick="viewFeaturedProduct(${i})">
-        View Details
-      </a>
+      <div class="col-auto">
 
-    </div>
+<a href="product-details.html" 
+   class="btn btn-primary mt-auto"
+   onclick="viewFeaturedProduct(${i})">
+  View Details
+</a>
+<a
+style="background-color: green; border-color: green"
+class="btn btn-primary mt-auto"
+onclick="AddToCart(${i})">
+Add To Cart
+</a>
+
+</div>
+      
+      </div>
   </div>
 </div>
 `;
@@ -121,9 +141,30 @@ function viewFeaturedProduct(index) {
     price: product.discount || product.price,
     originalPrice: product.discount ? product.price : null,
     image: product.image,
-    type : product.type,
+    type: product.type,
     description: product.description || "No description available.",
   };
 
   localStorage.setItem("selectedProduct", JSON.stringify(selectedProduct));
+}
+
+function AddToCart(index) {
+let product = featuredProducts[index];
+
+  let cartItem = {
+    name: product.name,
+    price: product.price,
+    image: product.image,
+    quantity: 1,
+    total: product.price * 1,
+  };
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push(cartItem);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  alert("Added item to your cart!");
+
 }

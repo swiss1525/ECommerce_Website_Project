@@ -5,14 +5,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home Page</title>
-  <link rel="stylesheet" href="./css/styles.css"/>
+  <link rel="stylesheet" href="./css/styles.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
 </head>
+<style>
+  .banner {
+    height: 300px;
+   background-color: grey;
+    position: relative;
+  }
 
+  .banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* dark overlay */
+  }
+
+  .banner>div {
+    position: relative;
+    z-index: 1;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .close-btn:hover {
+    color: red;
+  }
+</style>
 <body>
   <!-- Navbar -->
   <div id="NavbarComponent"></div>
@@ -24,6 +62,20 @@
         Every Album. Every Artist. One Place.
       </p>
       <a href="products.html" class="btn btn-primary-CTA CTA">Shop Now</a>
+    </div>
+  </div>
+
+  <div class="container-fluid p-0" id="adBanner">
+    <div class="banner d-flex align-items-center justify-content-center text-center text-white position-relative">
+
+      <button class="close-btn" onclick="closeBanner()">x</button>
+
+      <div>
+        <h1 class="fw-bold">🔥NEW WEBSITE CODE</h1>
+        <p>Use code:  <b>COLLEGELSALLE</b> and get 50% off your first purchase!</p>
+        <button class="btn btn-light fw-semibold">Shop Now</button>
+      </div>
+
     </div>
   </div>
 
@@ -63,31 +115,9 @@
       <div class="row" id="category-product-list"></div>
     </div>
   </div>
-  <!--Featured Partners-->
-  <section>
-    <div class="container">
-      <h2 class="featured-partners">Artist Showcase</h2>
-      <section class="artist-showcase">
-        <div class="slider-container">
-          <img width="100%" id="sliderImage" src="" alt="Artist Showcase" />
-        </div>
-        <div class="slider-text">
-          <h2 id="sliderTitle"></h2>
-          <p id="sliderDescription"></p>
-        </div>
-
-        <button style="margin: 10px" class="btn btn-outline-primary" id="prevBtn">
-          Previous
-        </button>
-        <button style="margin: 10px" class="btn btn-outline-primary" id="nextBtn">
-          Next
-        </button>
-      </section>
-    </div>
-  </section>
   <!--Footer-->
-  <footer class="bg-light text-center py-3 footer mt-3">
-    <p>&copy; 2026 The ULTIMATE Store. All rights reserved.</p>
+  <footer class="bg-dark text-light text-center pt-4 pb-4 footer mt-3">
+    <p style="margin: 0;">&copy; 2026 The ULTIMATE Store. All rights reserved.</p>
   </footer>
 </body>
 <script src="./js/menu-cart.js" defer></script>
@@ -95,6 +125,22 @@
 <script src="./js/index/featured.js"></script>
 <script src="./js/index/artist-showcase.js"></script>
 <script src="./js/global-components.js"></script>
+<script>
+  let banner = document.getElementById("adBanner");
+let ad = localStorage.getItem("bannerClosed");
+
+if (ad === "true") {
+  banner.style.display = "none";
+}
+</script>
+<script>
+function closeBanner() {
+  let banner = document.getElementById("adBanner");
+  banner.style.display = "none";
+
+  localStorage.setItem("bannerClosed", "true");
+}
+</script>
 
 </html>
 <!--       _

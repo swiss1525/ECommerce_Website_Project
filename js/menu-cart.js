@@ -16,5 +16,6 @@ if (cartItems.length > 0) {
     cartMenu.innerHTML += `
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="cart.html">View Cart</a></li>
+        <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
     `;
 }

@@ -5,15 +5,28 @@ let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 let discountCode = "COLLEGELASALLE";
 let discountApplied = false;
-let discountRate = 0.2; // 20% discount
-let discount = document.getElementById("discount");
+let discountRate = 0.5;
 
+let discountInput = document.getElementById("discount");
 let applyBtn = document.getElementById("applyDiscount");
 
+let storedDiscount = localStorage.getItem("discounts");
+
 applyBtn.addEventListener("click", function () {
-  if (discount.value.trim().toUpperCase() === discountCode) {
+  let userInput = discountInput.value.trim().toUpperCase();
+
+  if (userInput === discountCode) {
+    // Check if already used
+    if (storedDiscount === discountCode) {
+      alert("This code has already been used.");
+      return;
+    }
     discountApplied = true;
+
+    localStorage.setItem("discounts", discountCode);
+
     UpdateOrderPrice();
+
   } else {
     discountApplied = false;
     alert("Invalid discount code.");
@@ -52,7 +65,7 @@ function UpdateOrderPrice() {
   
   if (discountApplied) {
     discountedSubtotal = total - total * discountRate;
-    discountConfirmed.innerText = "20% discount added to subtotal!"
+    discountConfirmed.innerText = "50% discount added to subtotal!"
   } else {
     discountedSubtotal = total;
   }

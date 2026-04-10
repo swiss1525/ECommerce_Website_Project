@@ -135,21 +135,32 @@ for (let i = 0; i < productsCategory.length; i++) {
       alt="${productsCategory[i].name}"
     >
 
-    <div class="card-body ">
+   <div class="card-body d-flex flex-column">
 
-      <h5 style="font-weight: 700" class="card-title">
-        ${productsCategory[i].name}
-      </h5>
-      <p style="font-size: 20px; font-style: italic" class=" fw-semibold">
-        $${productsCategory[i].price}
-      </p>
-      <a href="product-details.html" 
-         class="btn btn-primary d-flex justify-content-center mt-auto"
-         onclick="viewFeaturedProduct(${i})">
-        View Details
-      </a>
+  <h5 style="font-weight: 700" class="card-title">
+    ${productsCategory[i].name}
+  </h5>
 
-    </div>
+  <p style="font-size: 20px; font-style: italic" class="fw-semibold">
+    $${productsCategory[i].price}
+  </p>
+
+  <div class="mt-auto d-flex flex-column gap-2">
+    <a href="product-details.html" 
+       class="btn btn-primary"
+       onclick="viewFeaturedProduct(${i})">
+      View Details
+    </a>
+
+    <button
+      style="background-color: green; border-color: green"
+      class="btn btn-primary"
+      onclick="AddToCart(${i})">
+      Add To Cart
+    </button>
+  </div>
+
+</div>
   </div>
 </div>
 `;
@@ -215,4 +226,25 @@ function viewFeaturedProduct(index) {
   };
 
   localStorage.setItem("selectedProduct", JSON.stringify(selectedProduct));
+}
+
+function AddToCart(index) {
+let product = productsCategory[index];
+
+  let cartItem = {
+    name: product.name,
+    price: product.price,
+    image: product.image,
+    quantity: 1,
+    total: product.price * 1,
+  };
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push(cartItem);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  alert("Added item to your cart!");
+
 }
