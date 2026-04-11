@@ -84,7 +84,7 @@ if (user) {
                 <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
               </ul>`;
 } else {
-  profileMenu.innerHTML = `<a class="nav-link" href="registration-page.html">Login/Register</a>`;
+  profileMenu.innerHTML = `<a class="nav-link" href="registration.html">Login/Register</a>`;
 }
 
   let logoutBtn = document.getElementById("logoutBtn");

@@ -1,0 +1,17 @@
+@font-face {
+  font-family: Figtree-Medium;
+  src: url(../fonts/Figtree/Figtree-Medium.ttf);
+}
+
+@font-face {
+  font-family: Figtree-Bold;
+  src: url(../fonts/Figtree/Figtree-Bold.ttf);
+}
+
+p {
+font-family: Figtree-Medium;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: Figtree-Bold;
+}

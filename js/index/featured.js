@@ -6,19 +6,21 @@ let featuredProducts = [
     price: 19.99,
     type: "Digital Album",
     image: "images\\Homepage_Featured\\HIT_ME_HARD_AND_SOFT.jpg",
+    description: "It's Billie Eilish's latest album, 'HIT ME HARD AND SOFT'. Get it now on digital only!"
   },
   {
     name: "BTS 'ARIRANG' DIGITAL ALBUM",
     price: 29.99,
     type: "Digital Album",
     image: "images\\Homepage_Featured\\BTS_Arirang_digital_album_cover.jpg",
-    description: "Experience the soulful melodies of BTS with 'Arirang' on digital platforms. This album captures the essence of Korean culture and BTS's unique sound, making it a must-have for any music enthusiast."
+    description: "BTS is back with their new album 'ARIRANG'! After 2 years of military, the biggest k-pop boy band go back to their roots and embrace their story from the ground-up."
   },
   {
-    name: "BRUNO MARS 'AN EVENING WITH SILK SONIC' VINYL",
+    name: "BRUNO MARS 'THE ROMANTIC' VINYL",
     price: 39.99,
     type: "Vinyl",
     image: "images\\Homepage_Featured\\bruno-mars-the-romantic.jpeg",
+    description: "It's Bruno Mars' 'The Romantic' now on VINYL!"
   },
   {
     name: "TAYLOR SWIFT 'TLOAS' ALBUM",
@@ -26,12 +28,14 @@ let featuredProducts = [
     discount: 22.99,
     type: "Physical Album",
     image: "images\\Homepage_Featured\\The_Life_of_a_Showgirl.jpg",
+    description: "Record breaking artist and album, Taylor Swift's 'The Life of A Showgirl' is available now!"
   },
   {
     name: "JUSTIN BIEBER 'SWAG' ALBUM",
     price: 29.99,
     type: "Physical Album",
     image: "images\\Homepage_Featured\\swag_justin_bieber.jpg",
+    description: "Get 'SWAG' with Justin Bieber! Get your physical copy of Swag now!"
   },
   {
     name: "NIRVANA 'NEVERMIND' VINYL",
@@ -39,6 +43,7 @@ let featuredProducts = [
     discount: 20.99,
     type: "Vinyl",
     image: "images\\Homepage_Featured\\nirvana_nevermind.jpg",
+    description: "Classic and iconic. Nirvana's 'NEVERMIND' is now available in VINYL!"
   },
 ];
 

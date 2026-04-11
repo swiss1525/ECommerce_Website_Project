@@ -16,6 +16,10 @@
   background-color: #0B5ED7;
 }
 
+#productDescription {
+  font-family: Figtree-Black;
+}
+
 .Hero-Title {
   margin-top: 50px;
   text-align: center;

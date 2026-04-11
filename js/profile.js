@@ -40,8 +40,7 @@ if (recentPurchases.length > 0) {
 
 // Check if user is logged in and display profile information
 if (currentUser) {
-  document.getElementById("profileTitle").textContent =
-    `${currentUser.username}'s Profile`;
+
   document.getElementById("userInfo").innerHTML = `
       <div class="container mt-4">
       
@@ -56,7 +55,6 @@ if (currentUser) {
       </div>
         `;
 } else {
-  document.getElementById("profileTitle").textContent = "Profile";
   document.getElementById("userInfo").innerHTML =
     "<p>Please log in to view your profile information.</p>";
 }

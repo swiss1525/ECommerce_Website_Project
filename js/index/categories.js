@@ -4,12 +4,14 @@ let CategoryProducts = [
   {
     id: "songs1",
     name: "ALEX WARREN 'FEVER DREAM' SINGLE",
+    type: "Single",
     price: 19.99,
     image: "images\\HomepageCategoryProducts\\alex-fever.jpg",
   },
   {
     id: "vinyls1",
     name: "RAVYN LENAE 'LOVE ME NOT' VINYL",
+    type: "Single",
     price: 29.99,
     image: "images\\HomepageCategoryProducts\\love_me_not_album.jpg",
   },
@@ -61,6 +63,7 @@ function viewCategoryProduct(index) {
     name: product.name,
     price: product.price,
     originalPrice: null,
+    type: product.type,
     image: product.image,
     description: product.description || "No description available."
   };
