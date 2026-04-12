@@ -58,7 +58,7 @@ function UpdateOrderPrice() {
       <p>Price: $${cart[i].price.toFixed(2)}</p>
       <p>Quantity: ${cart[i].quantity}</p>
       <hr>
-      <p>Item Total: $${itemTotal.toFixed(2)}</p>
+      <p style="color: green; font-family: Figtree-MediumItalic">Item Total: $${itemTotal.toFixed(2)}</p>
     </div><hr>`;
   }
   let discountConfirmed = document.getElementById("discountMessage");
@@ -77,10 +77,10 @@ function UpdateOrderPrice() {
   orderSummary.innerHTML = html;
   orderTotal.innerHTML = `
   <p>Subtotal: $${discountedSubtotal.toFixed(2)}</p>
-  <p style="font-size:20px">GST: $${gst.toFixed(2)}</p>
-  <p style="font-size:20px">QST: $${qst.toFixed(2)}</p>
+  <p style="font-size:20px; font-family: Figtree-MediumItalic" >GST: $${gst.toFixed(2)}</p>
+  <p style="font-size:20px; font-family: Figtree-MediumItalic">QST: $${qst.toFixed(2)}</p>
     <hr>
-    <span style="font-weight: 700">Total: $${finalTotal.toFixed(2)}</span>
+    <span style="font-weight: 700; color: green">Total: $${finalTotal.toFixed(2)}</span>
   `;
 }
 

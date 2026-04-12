@@ -3,7 +3,7 @@ let buttons = document.querySelectorAll(".filter-btn");
 let CategoryProducts = [
   {
     id: "songs1",
-    name: "ALEX WARREN 'FEVER DREAM' SINGLE",
+    name: "ALEX WARREN 'FEVER DREAM' SINGLE: ",
     type: "Single",
     price: 19.99,
     image: "images\\HomepageCategoryProducts\\alex-fever.jpg",
@@ -11,16 +11,30 @@ let CategoryProducts = [
   {
     id: "vinyls1",
     name: "RAVYN LENAE 'LOVE ME NOT' VINYL",
-    type: "Single",
+    type: "Vinyl",
     price: 29.99,
     image: "images\\HomepageCategoryProducts\\love_me_not_album.jpg",
+  },
+  {
+    id: "albums1",
+    name: "FOSTER THE PEOPLE 'TORCHES' ALBUM",
+    type: "Album",
+    price: 39.99,
+    image: "images\\HomepageCategoryProducts\\foster_the_people_torches.jpg",
+  },
+  {
+    id: "albums2",
+    name: "THE WANTED ALBUM",
+    type: "Album",
+    price: 39.99,
+    image: "images\\HomepageCategoryProducts\\the_wanted.jpg",
   },
 ];
 
 for (let i = 0; i < CategoryProducts.length; i++) {
   let categoryProducts = document.getElementById("category-product-list");
   categoryProducts.innerHTML +=`
-<div class="col-md-6 col-lg-4 product" id="${CategoryProducts[i].id}">
+<div class="col-md-6 product g-5" id="${CategoryProducts[i].id}">
   <div class="card h-100 shadow-sm">
 
     <img 

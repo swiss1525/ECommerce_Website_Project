@@ -1,0 +1,48 @@
+@font-face {
+  font-family: Figtree-Bold;
+  src: url(../fonts/Figtree/Figtree-Bold.ttf);
+}
+
+@font-face {
+  font-family: Figtree-Medium;
+  src: url(../fonts/Figtree/Figtree-Medium.ttf);
+}
+
+@font-face {
+  font-family: Figtree-LightItalic;
+  src: url(../fonts/Figtree/Figtree-LightItalic.ttf);
+}
+
+@font-face {
+  font-family: Figtree-MediumItalic;
+  src: url(../fonts/Figtree/Figtree-MediumItalic.ttf);
+}
+
+@font-face {
+  font-family: Figtree-BoldItalic;
+  src: url(../fonts/Figtree/Figtree-BoldItalic.ttf);
+}
+
+.checkout {
+  font-family: Figtree-Bold;
+}
+
+.Billing-Title {
+  font-family: Figtree-Bold;
+}
+.Order-Title {
+  font-family: Figtree-Bold;
+}
+
+.FormLabel {
+  font-family: Figtree-Medium;
+}
+
+.input-italic {
+  font-family: Figtree-LightItalic;
+}
+
+.discount-text {
+    font-family: Figtree-BoldItalic;
+    font-size: 1.3rem;
+}

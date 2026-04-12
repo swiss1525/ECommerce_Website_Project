@@ -10,42 +10,43 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/checkout.css">
 </head>
 
 <body>
   <div id="NavbarComponent"></div>
   <div class="container mt-4">
-    <h1>Checkout
+    <h1 class="checkout">Checkout
       <hr>
     </h1>
 
 
     <div class="row">
       <div class="col-md-6">
-        <h2>Billing Information
+        <h2 class="Billing-Title">Billing Information
           <hr>
         </h2>
 
         <form id="checkoutForm">
           <div>
-            <label for="customerName">Name:</label><br>
+            <label class="FormLabel" for="customerName">Name:</label><br>
             <input type="text" id="customerName" />
           </div>
           <br />
 
           <div>
-            <label for="customerAddress">Address:</label> <br>
+            <label class="Formlabel" for="customerAddress">Address:</label> <br>
             <input type="text" id="customerAddress" />
           </div>
           <br />
           <div>
-            <label for="customerPostalCode">Postal Code:</label> <br>
+            <label class="FormLabel" for="customerPostalCode">Postal Code:</label> <br>
             <input type="text" id="customerPostalCode" />
           </div>
 
           <br />
           <div>
-            <label for="paymentMethod">Payment Method:</label>
+            <label class="FormLabel" for="paymentMethod">Payment Method:</label>
             <select id="paymentMethod" onchange="showPaymentFields()">
               <option value="none">Select Payment Method</option>
               <option value="credit">Credit Card</option>
@@ -57,25 +58,25 @@
 
           <div id="creditFields" style="display: none">
             <p style="font-weight: 700;">Credit Card Information:</p>
-            <label for="creditCardholderName">Cardholder Name:</label> <br>
-            <input type="text" id="creditCardholderName" placeholder="Cardholder Name" />
+            <label class="FormLabel" for="creditCardholderName">Cardholder Name:</label> <br>
+            <input class="input-italic" type="text" id="creditCardholderName" placeholder="Cardholder Name" />
             <br><br>
-            <label for="creditCardNumber">Card Number:</label> <br>
-            <input type="text" id="creditCardNumber" placeholder="Card Number" />
+            <label class="FormLabel" for="creditCardNumber">Card Number:</label> <br>
+            <input class="input-italic" type="text" id="creditCardNumber" placeholder="Card Number" />
           </div>
 
           <div id="debitFields" style="display: none">
             <p style="font-weight: 700;">Debit Card Information:</p>
-            <label for="debitCardholderName">Cardholder Name:</label> <br>
-            <input type="text" id="debitCardholderName" placeholder="Cardholder Name" /> <br> <br>
+            <label class="FormLabel" for="debitCardholderName">Cardholder Name:</label> <br>
+            <input class="input-italic" type="text" id="debitCardholderName" placeholder="Cardholder Name" /> <br> <br>
 
-            <label for="debitCardNumber">Card Number:</label> <br>
-            <input type="text" id="debitCardNumber" placeholder="Card Number" />
+            <label class="FormLabel" for="debitCardNumber">Card Number:</label> <br>
+            <input class="input-italic" type="text" id="debitCardNumber" placeholder="Card Number" />
           </div>
           <div id="paypalFields" style="display: none">
             <p style="font-weight: 700;">PayPal Information:</p>
-            <label for="paypalEmail">PayPal Email:</label><br>
-            <input type="email" id="paypalEmail" placeholder="PayPal Email" />
+            <label class="FormLabel" for="paypalEmail">PayPal Email:</label><br>
+            <input class="input-italic" type="email" id="paypalEmail" placeholder="PayPal Email" />
           </div>
 
           <button class="btn btn-primary mt-4" type="submit">Place Order</button>
@@ -85,12 +86,12 @@
       </div>
 
       <div class="col-md-6">
-        <h2>Order Summary
+        <h2 class="Order-Title">Order Summary
           <hr>
         </h2>
         <div id="orderSummary"></div>
         <span style="font-size: 15px;">
-          <p>Got a discount code?</p>
+          <p class="discount-text">Got a discount code?</p>
         </span>
         <input type="text" id="discount" name="name">
         <button type="button" id="applyDiscount" class="btn btn-primary">Submit</button>

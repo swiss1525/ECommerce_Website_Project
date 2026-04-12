@@ -10,12 +10,45 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/banner.css">
   </head>
   <body>
     <div id="NavbarComponent"></div>
+      <!--Ad Banner-->
+
+  <div class="container-fluid p-0" id="adBanner">
+    <div class="banner d-flex align-items-center justify-content-center text-center text-white position-relative">
+
+      <button class="close-btn" onclick="closeBanner()">x</button>
+
+      <div>
+        <h1 style="font-size: clamp(2rem, 5vw, 5rem);" class="fw-bold">🔥NEW WEBSITE CODE</h1>
+        <p style="font-size: clamp(1rem, 1.5vw, 1.5rem);">Use code:  <b>COLLEGELSALLE</b> and get 50% off your first purchase!</p>
+        <a href="products.html" class="btn btn-light Show-Now-Font">Shop Now</a>
+      </div>
+
+    </div>
+  </div>
     <div id="userInfo"></div>
   </body>
 <script src="js/profile.js"></script>
 <script src="js/global-components.js"></script>
 <script src="js/menu-cart.js"></script>
+
+<script>
+  let banner = document.getElementById("adBanner");
+let ad = localStorage.getItem("bannerClosed");
+
+if (ad === "true") {
+  banner.style.display = "none";
+}
+</script>
+<script>
+function closeBanner() {
+  let banner = document.getElementById("adBanner");
+  banner.style.display = "none";
+
+  localStorage.setItem("bannerClosed", "true");
+}
+</script>
 </html>

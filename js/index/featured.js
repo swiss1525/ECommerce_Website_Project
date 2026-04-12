@@ -67,10 +67,10 @@ for (let i = 0; i < featuredProducts.length; i++) {
         ${featuredProducts[i].name}
       </h5>
 <div style="display: flex; justify-content: center; gap: 10px;">
-      <p class="card-text fw-semibold fs-5" style="color: gray; text-decoration: line-through;">
+      <p class="card-text fw-semibold fs-5 original-price" style="color: gray; text-decoration: line-through;">
         $${featuredProducts[i].price}
       </p>
-      <p class="card-text text-success fw-semibold fs-5">
+      <p class="card-text text-success fw-semibold fs-5 price">
         $${featuredProducts[i].discount}
       </p>
 </div>
@@ -111,7 +111,7 @@ Add To Cart
       ${featuredProducts[i].name}
       </h5>
       
-      <p class="card-text text-success fw-semibold fs-5">
+      <p class="card-text text-success fw-semibold fs-5 price">
       $${featuredProducts[i].price}
       </p>
 
