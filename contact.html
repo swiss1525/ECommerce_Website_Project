@@ -13,30 +13,53 @@
         crossorigin="anonymous"></script>
 </head>
 
+<style>
+
+    @font-face {
+  font-family: Figtree-Black;
+  src: url(../fonts/Figtree/Figtree-Black.ttf);
+}
+    @font-face {
+  font-family: Figtree-Bold;
+  src: url(../fonts/Figtree/Figtree-Bold.ttf);
+}
+    @font-face {
+  font-family: Figtree;
+  src: url(../fonts/Figtree/Figtree-Regular.ttf);
+}
+
+* {
+    font-family: Figtree;
+}
+
+</style>
+
 <body>
     <div id="NavbarComponent"></div>
     <div class="container mt-4">
-        <h1>Contact Us</h1>
+        <h1 style="font-family: Figtree-Bold;">Contact Us</h1>
         <p>
-            If you have any questions or concerns, please feel free to reach out to us using the contact form below.
+            If you have any questions or concerns, please feel free to reach out to us using the contact form below. <br>
+            <span style="color: red;">*</span> = Required
         </p>
         <form id="contactForm">
             <div class="mb-3">
-                <label for="name" class="form-label">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <label for="name" class="form-label">Name: <span style="color: red;"> *</span></label>
+                <input type="text" class="form-control" id="name" name="name">
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <label for="email" class="form-label">Email:<span style="color: red;"> *</span></label>
+                <input type="email" class="form-control" id="email" name="email">
             </div>
             <div class="mb-3">
-                <label for="message" class="form-label">Message:</label>
-                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                <label for="message" class="form-label">Message: <span style="color: red;"> *</span></label>
+                <textarea class="form-control" id="message" name="message" rows="5"></textarea>
             </div>
+            <p style="text-align: center; color: red; font-style: italic; font-family: Figtree-Bold; font-size: 20px;" id="error"></p>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         </div>
-            <footer class="bg-dark text-light text-center pb-4 pt-4 footer mt-3">
+            <footer class="fixed-bottom bg-dark text-light text-center pb-4 pt-4 footer mt-3">
       <p style="margin: 0;">&copy; 2026 The ULTIMATE Store. All rights reserved.</p>
     </footer>
 </body>

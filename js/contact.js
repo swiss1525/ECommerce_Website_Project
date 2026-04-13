@@ -3,16 +3,33 @@ let contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', function(event) {
     event.preventDefault();
     
-    // Get form values
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let message = document.getElementById('message').value;
+    //  form values
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+    let errorMessage = document.getElementById("error")
+    
+    // form styling
+    
+    let nameInput = document.getElementById("name");
+    let emailInput = document.getElementById("email");
+    let messageInput = document.getElementById("message");
 
-    // Simple validation
+    //  validation
     if (name === '' || email === '' || message === '') {
-        alert('Please fill in all fields.');
+        if (name === '') {
+            nameInput.style.borderColor = "Red";
+        }
+        if (email === '') {
+            emailInput.style.borderColor = "Red";
+        }
+        if (message === '') {
+            messageInput.style.borderColor = "Red";
+        }
+        errorMessage.innerText = "Please fill in all of the fields"
         return;
     }
+
 
     let messageSubmitted = {
         email: email,
